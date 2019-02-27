@@ -9,12 +9,6 @@ var lettersguessed = [];
 // The computer picks a random letter
 var computersletter = ""
 
-function letterGenerator (computersletter){
-   computersletter = alphabet[Math.floor(Math.random() * alphabet.length)]
-    
-}
-letterGenerator()
-console.log(computersletter)
 
 var alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p",
 "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
