@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang= "en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My Question Game</title>
+</head>
+
+<body>
+
+    <h1>My Question Game!</h1>
+
+    <p>You must answer the following true and false statements.</p>
+    <p>True statements are keyed in using "t"</p>
+    <p>False statements are keyed in using "f"</p>
+
+<br>
+
+    <p id="score"></p>
+    <p id="question"></p>
+
+
+    <script>
+
+// VARIABLES
+        var questions = [
+            {q: "Water is wet.", a: "t"},
+            {q: "NFL stands for National Football League.", a: "t"},
+            {q: "The American flag has pink in it.", a: "f"},
+            {q: "100 pounds of rocks are heavier than 100 pounds of feathers.", a: "f"},
+            {q: "There is zero gravity on the moon.", a: "t"}
+        ];
+
+        var score = 0;
+
+        var questionIndex = 0;
+
+// FUNCTIONS
+
+        function askQuestion() {
+            if (questionIndex <= (questions.length -1)) {
+                document.querySelector("#question").innerHTML = questions[questionIndex].q;
+            }
+            
+            else {
+                document.querySelector("#question").innerHTML = "Game Over!";
+                document.querySelector("#score").innerHTML = "Final Score: " + score + " our of " + questions.length;
+            } 
+        }
+
+        function updateScore() {
+            document.querySelector("#score").innerHTML = "Score: " + score;
+        }
+
+    
+
+
+// MAIN PROCESS
+
+        askQuestion();
+        updateScore();
+
+        document.onkeyup = function(event) {
+
+            if (questionIndex === questions.length) {
+                return;
+            }
+            
+            var userInput = event.key.toLowerCase();
+
+            if (userInput === "t" || userInput === "f") {
+
+                if (userInput === questions[questionIndex].a) {
+                    alert("Correct!");
+                    score++;
+                    updateScore();
+                }
+
+                else {
+                    alert("Wrong!");
+                }
+
+                questionIndex++;
+                askQuestion();
+
+            }
+        };
+
+    
+    </script>
+</body>
+
+
+</html>
