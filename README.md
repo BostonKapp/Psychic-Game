@@ -13,3 +13,5 @@
 <!-- After 13 tries the user loses -->
 
 <!-- Number of times the user lost -->
+
+link to the project :  https://bostonkapp.github.io/Psychic-Game/
